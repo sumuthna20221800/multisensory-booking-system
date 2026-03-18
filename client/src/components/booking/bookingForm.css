@@ -1,0 +1,98 @@
+.glass-bg {
+    min-height: 100vh;
+    background: url("/src/assets/panoramas/image7.jpg") center/cover no-repeat;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(18px);
+    border-radius: 28px;
+    padding: 3.5rem;
+    max-width: 780px;
+    width: 100%;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+  }
+  
+  .glass-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.6rem;
+    color: #1a432e;
+    margin-bottom: 0.4rem;
+  }
+  
+  .subtitle {
+    color: #5f6f65;
+    margin-bottom: 2.5rem;
+  }
+  
+  .glass-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem 2rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    color: #2f6f4e;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.15);
+    font-size: 0.95rem;
+    background: #f9faf8;
+  }
+  
+  .form-group textarea {
+    resize: none;
+    height: 120px;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #2f6f4e;
+    box-shadow: 0 0 0 3px rgba(47, 111, 78, 0.18);
+  }
+  
+  .primary-btn {
+    grid-column: span 2;
+    margin-top: 2rem;
+    padding: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #3fa86a, #1a6b3c);
+    box-shadow: 0 12px 30px rgba(26, 107, 60, 0.45);
+  }
+  
+  .primary-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .glass-form {
+      grid-template-columns: 1fr;
+    }
+  
+    .primary-btn {
+      grid-column: span 1;
+    }
+  }
+  

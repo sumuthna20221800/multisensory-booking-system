@@ -1,0 +1,303 @@
+/*export default function BookingForm() {
+    return (
+      <section className="booking-section">
+        <form className="booking-form">
+          <div className="booking-header">
+            <h2>Book Your Stay</h2>
+            <p>
+              Reserve your immersive eco-lodge experience in just a few steps.
+            </p>
+          </div>
+  
+          <div className="form-row">
+            <div className="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Jane Perera" />
+            </div>
+  
+            <div className="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="jane@email.com" />
+            </div>
+          </div>
+  
+          <div className="form-row">
+            <div className="form-group">
+              <label>Guests</label>
+              <input type="number" min="1" placeholder="2" />
+            </div>
+  
+            <div className="form-group">
+              <label>Contact Number</label>
+              <input type="tel" placeholder="+94 77 123 4567" />
+            </div>
+          </div>
+  
+          <div className="form-row">
+            <div className="form-group">
+              <label>Check-in</label>
+              <input type="date" />
+            </div>
+  
+            <div className="form-group">
+              <label>Check-out</label>
+              <input type="date" />
+            </div>
+          </div>
+  
+          <div className="form-group full">
+            <label>Special Requests (Optional)</label>
+            <textarea placeholder="Dietary needs, arrival time, etc." />
+          </div>
+  
+          <button className="btn-primary booking-btn" type="submit">
+            Confirm Booking
+          </button>
+        </form>
+      </section>
+    );
+  }*/
+    /*import "./bookingForm.css";
+
+    
+
+    export default function BookingForm() {
+      return (
+        <section className="glass-bg">
+          <div className="glass-card">
+            <h2>Book Your Stay</h2>
+            <p className="subtitle">
+              Reserve your immersive eco-lodge experience in just a few steps.
+            </p>
+    
+            <form className="glass-form">
+              
+              <div className="form-group">
+                <label>Stay ID</label>
+                <input
+                  type="text"
+                  placeholder="STAY-001"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Guests</label>
+                <input
+                  type="number"
+                  min="1"
+                  placeholder="2"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Jane Perera"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="jane@email.com"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Check-in Date</label>
+                <input
+                  type="date"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Check-out Date</label>
+                <input
+                  type="date"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Contact Number</label>
+                <input
+                  type="tel"
+                  placeholder="+94 77 123 6667"
+                />
+              </div>
+    
+              
+              <div className="form-group">
+                <label>Special Requests</label>
+                <input
+                  type="text"
+                  placeholder="Dietary needs, arrival time, accessibility"
+                />
+              </div>
+    
+              <button className="primary-btn">
+                Confirm Booking
+              </button>
+            </form>
+          </div>
+        </section>
+      );
+    }
+    */
+
+    import React, { useState } from "react";
+import axios from "axios";
+import "./bookingForm.css";
+
+export default function BookingForm() {
+  // 1. Initialize state for all form fields
+  const [formData, setFormData] = useState({
+    stayId: "",
+    guests: 1,
+    fullName: "",
+    email: "",
+    checkIn: "",
+    checkOut: "",
+    contact: "",
+    requests: "",
+  });
+
+  // 2. Handle input changes dynamically
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // 3. Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent page reload
+    try {
+      // Connects to the route we added in server.js
+      const response = await axios.post("http://localhost:5000/api/bookings", formData);
+      
+      // Success feedback from backend
+      alert(response.data.message);
+      console.log("Server Response:", response.data);
+    } catch (err) {
+      console.error("Connection Error:", err);
+      alert("Failed to connect to the server. Is it running on port 5000?");
+    }
+  };
+
+  return (
+    <section className="glass-bg">
+      <div className="glass-card">
+        <h2>Book Your Stay</h2>
+        <p className="subtitle">
+          Reserve your immersive eco-lodge experience in just a few steps.
+        </p>
+
+        {/* 4. Attach the handleSubmit function */}
+        <form className="glass-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Stay ID</label>
+            <input
+              type="text"
+              name="stayId"
+              placeholder="STAY-001"
+              value={formData.stayId}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Guests</label>
+            <input
+              type="number"
+              name="guests"
+              min="1"
+              value={formData.guests}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Jane Perera"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="jane@email.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Check-in Date</label>
+            <input
+              type="date"
+              name="checkIn"
+              value={formData.checkIn}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Check-out Date</label>
+            <input
+              type="date"
+              name="checkOut"
+              value={formData.checkOut}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Contact Number</label>
+            <input
+              type="tel"
+              name="contact"
+              placeholder="+94 77 123 6667"
+              value={formData.contact}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Special Requests</label>
+            <input
+              type="text"
+              name="requests"
+              placeholder="Dietary needs, arrival time, accessibility"
+              value={formData.requests}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button type="submit" className="primary-btn">
+            Confirm Booking
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
