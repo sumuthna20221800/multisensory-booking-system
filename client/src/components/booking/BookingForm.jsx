@@ -153,7 +153,7 @@
     */
 
     import React, { useState } from "react";
-import axios from "axios";
+  import { createBooking } from "../../services/bookingService";
 import "./bookingForm.css";
 
 export default function BookingForm() {
@@ -176,17 +176,23 @@ export default function BookingForm() {
 
   // 3. Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
     try {
-      // Connects to the route we added in server.js
-      const response = await axios.post("http://localhost:5000/api/bookings", formData);
-      
-      // Success feedback from backend
-      alert(response.data.message);
-      console.log("Server Response:", response.data);
+      const response = await createBooking(formData);
+      alert(response.message);
+      setFormData({
+        stayId: "",
+        guests: 1,
+        fullName: "",
+        email: "",
+        checkIn: "",
+        checkOut: "",
+        contact: "",
+        requests: "",
+      });
     } catch (err) {
       console.error("Connection Error:", err);
-      alert("Failed to connect to the server. Is it running on port 5000?");
+      alert(err.response?.data?.message || "Failed to submit booking");
     }
   };
 
