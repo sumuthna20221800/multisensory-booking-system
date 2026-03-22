@@ -1,15 +1,17 @@
-// A simple structure for a Booking object
-class Booking {
-    constructor(data) {
-      this.stayId = data.stayId;
-      this.guests = data.guests;
-      this.fullName = data.fullName;
-      this.email = data.email;
-      this.checkIn = data.checkIn;
-      this.checkOut = data.checkOut;
-      this.contact = data.contact;
-      this.requests = data.requests;
-      this.createdAt = new Date();
-    }
-  }
-  module.exports = Booking;
+const mongoose = require('mongoose');
+
+const bookingSchema = new mongoose.Schema(
+  {
+    stayId: { type: String, required: true, trim: true },
+    guests: { type: Number, required: true, min: 1 },
+    fullName: { type: String, required: true, trim: true },
+    email: { type: String, required: true, lowercase: true, trim: true },
+    checkIn: { type: Date, required: true },
+    checkOut: { type: Date, required: true },
+    contact: { type: String, required: true, trim: true },
+    requests: { type: String, default: '' }
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model('Booking', bookingSchema);
