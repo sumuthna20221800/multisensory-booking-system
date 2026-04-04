@@ -110,3 +110,48 @@
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
+
+  /* addEcoStay.css */
+.glass-bg .add-stay-bg {
+  background: url("/src/assets/panoramas/image12.png") center/cover no-repeat;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.story-input-wrapper {
+  margin-bottom: 0.8rem;
+}
+
+.dynamic-input {
+  width: 100%;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px dashed #2f6f4e;
+  color: #2f6f4e;
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: rgba(47, 111, 78, 0.1);
+}
+
+/* Matching the primary button from your theme */
+.primary-btn {
+  background-color: #1a432e;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}

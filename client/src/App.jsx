@@ -68,6 +68,7 @@ import BookingPage from "./pages/BookingPage";
 import FeedbackPage from "./pages/FeedbackPage";
 import AuthPage from "./pages/AuthPage";
 import About from "./pages/About";
+import AddEcoStay from "./pages/AddEcoStay";
 import './App.css'
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/signin" element={<AuthPage />} />
         <Route path="/book/:id" element={<BookingPage />} />
+        <Route path="/add-stay" element={<AddEcoStay />} />
       </Routes>
       <Footer />
     </BrowserRouter>
