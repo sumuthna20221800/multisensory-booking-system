@@ -6,9 +6,9 @@ const lodges = [
       price: 18500,
       image: "src/assets/panoramas/image4.jpg",
       description: "Immersive rainforest stay surrounded by biodiversity.",
-      panorama: "/src/assets/panoramas/image3.jpg",
+      panorama: "/src/assets/panoramas/image4.jpg",
       sound: "/src/assets/audio/audio1.mp3",
-      stories: ["Ancient canopy views", "Dawn chorus bird calls", "Hidden waterfall trails"],
+      stories: ["The Ancient Canopy Experience: Rise above the mist on elevated timber decks. View 100-year-old trees that form a continuous green ceiling, home to the rare Purple-faced Leaf Monkey.", "The Dawn Chorus: Wake up to a natural sensory alarm clock. Our soundscapes capture the specific frequency of the Sinharaja bird waves, where over 20 species sing in a synchronized rhythmic pattern.", "Hidden Waterfall Trails: Follow the scent of damp earth and wild ferns. This story gallery features the journey to a private natural pool where the air is 5°C cooler than the forest floor."],
     },
     {
       id: "LOD-002",
@@ -19,7 +19,7 @@ const lodges = [
       description: "Cool climate lodge with panoramic mountain views.",
       panorama: "/src/assets/panoramas/image6.jpg",
       sound: "/src/assets/audio/audio1.mp3",
-      stories: ["Ancient canopy views", "Dawn chorus bird calls", "Hidden waterfall trails"],
+      stories: ["Misty Morning Mantle: Watch from your window as the white mist rolls over the peaks of the Central Highlands. This gallery highlights the transition from ghostly white silence to vibrant mountain sunlight.", "The Sound of High-Altitude Wind: Experience the unique whistling of the wind through the eucalyptus trees, a sound that has been scientifically proven to lower cortisol and induce deep sleep.", "The Golden Leaf Journey: A visual and olfactory story of the surrounding tea estates. Trace the path of a single tea leaf from the dew-covered bush to the warm, aromatic cup served on your private balcony."],
     },
     {
       id: "LOD-003",
@@ -30,7 +30,7 @@ const lodges = [
       description: "Relax by the ocean with calming wave soundscapes.",
       panorama: "/src/assets/panoramas/image9.jpg",
       sound: "/src/assets/audio/audio1.mp3",
-      stories: ["Ancient canopy views", "Dawn chorus bird calls", "Hidden waterfall trails"],
+      stories: ["The Rhythmic Pulse: Experience the Alpha-wave effect of the Indian Ocean. Our gallery showcases the visual symmetry of retreating tides paired with the deep, low-frequency thrum of crashing waves that aids in natural meditation.", "Salty Mist & Sea Spray: A visual story of the early morning coastline. Watch how the sun catches the fine salt particles in the air, creating a shimmering golden hour that is unique to the Southern coast.", "Moonlight Sands: Explore the nocturnal life of the beach. This story focuses on the cool, powdery texture of the sand underfoot and the silvery reflection of the moon on the water's surface."],
     },
     {
       id: "LOD-004",
@@ -41,7 +41,7 @@ const lodges = [
       description: "Hidden getaway surrounded by misty mountains.",
       panorama: "/src/assets/panoramas/image10.jpg",
       sound: "/src/assets/audio/audio1.mp3",
-      stories: ["Ancient canopy views", "Dawn chorus bird calls", "Hidden waterfall trails"],
+      stories: ["The Knuckles' Veil: Witness the dramatic dance of the mist as it clings to the jagged peaks of the Knuckles Mountain Range. This gallery captures the transition from total white-out silence to the sudden reveal of lush green valleys.", "The Whistling Gap: Listen to the Wind's Song at Riverstone. The unique geography creates a natural flute-like sound as air passes through the narrow mountain passes, a hauntingly beautiful acoustic phenomenon.", "Crystal Streams: Follow the journey of mountain runoff. A story of pure, icy water flowing over smooth river stones, highlighting the refreshing tactile sensation of a high-altitude dip."],
     },
     {
       id: "LOD-005",
@@ -52,7 +52,7 @@ const lodges = [
       description: "Wildlife-focused eco camp near Yala National Park.",
       panorama: "/src/assets/panoramas/image11.jpg",
       sound: "/src/assets/audio/audio1.mp3",
-      stories: ["Ancient canopy views", "Dawn chorus bird calls", "Hidden waterfall trails"],
+      stories: ["The Scent of the Dry Zone: Experience the olfactory story of the scrub jungle after a sudden rainfall. The intense, earthy aroma of petrichor mixed with wild jasmine and dried grass.", "Predator's Silence: A gallery focused on the tension of the wild. It documents the moment when the jungle goes silent—the sensory pause that occurs right before a leopard emerges from the shadows.", "Starlit Embers: The story of the night camp. Focuses on the orange glow of the campfire against the pitch-black savannah sky, accompanied by the distant, rhythmic sawing call of a leopard."],
     },
     {
       id: "LOD-006",
@@ -63,7 +63,7 @@ const lodges = [
       description: "Peaceful retreat inside lush tea plantations.",
       panorama: "/src/assets/panoramas/image12.png",
       sound: "/src/assets/audio/audio1.mp3",
-      stories: ["Ancient canopy views", "Dawn chorus bird calls", "Hidden waterfall trails"],
+      stories: ["The Plucker’s Path: A visual and rhythmic story of the Two Leaves and a Bud. Follow the colorful sarees of the tea pluckers as they move through the emerald-green geometric patterns of the estate.", "Lipton’s Seat Sunset: Experience the vastness of the Southern plains from 1,900 meters up. This story captures the changing colors of the sky as it transitions from fiery orange to deep violet over the rolling hills.", "The Factory Hum: An industrial-sensory story. Experience the mechanical rhythm and the deep, roasted aroma of the drying rooms where fresh leaves are transformed into world-renowned Ceylon Tea."],
     }
   ];
   

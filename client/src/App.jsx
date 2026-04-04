@@ -81,6 +81,7 @@ function App() {
         <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/signin" element={<AuthPage />} />
+        <Route path="/book/:id" element={<BookingPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

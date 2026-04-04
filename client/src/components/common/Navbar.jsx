@@ -27,6 +27,7 @@ function Navbar() {
         <Link to="/booking">Booking</Link>
         <Link to="/feedback">Feedback</Link>
         <Link to="/about">About</Link>
+        <Link to="/add">Add Eco Stay</Link>
         <Link to="/signin" className="nav-signin">
         Sign In
         </Link>

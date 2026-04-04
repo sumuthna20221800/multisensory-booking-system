@@ -174,6 +174,7 @@ p {
   letter-spacing: 1px;
   cursor: pointer;
   transition: var(--transition);
+  
 }
 
 .btn-primary:hover {
@@ -181,6 +182,12 @@ p {
   box-shadow: 0 15px 35px rgba(47, 111, 78, 0.35);
 }
 
+.btn-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns the button to the right */
+  width: 97%; /* Optional: Ensures the container spans the full width */
+  padding-bottom: 2%;
+}
 /* ---------- LODGE GRID ---------- */
 .lodge-grid {
   display: grid;

@@ -73,12 +73,14 @@ export default function LodgeCard({ lodge }) {
           <p className="lodge-id">Lodge ID: {lodge.id}</p>
           
           {/* Action: Use navigate to go to the specific lodge ID */}
+          <div class= "btn-container">
           <button 
             className="btn-primary" 
             onClick={() => navigate(`/lodge/${lodge.id}`)}
           >
             Explore
           </button>
+          </div>
         </div>
       </div>
     );

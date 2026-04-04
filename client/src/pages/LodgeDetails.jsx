@@ -37,10 +37,11 @@ import lodges from "../data/lodges"; // Import your real data
 import PanoramaViewer from "../components/experience/PanoramaViewer";
 import SoundscapePlayer from "../components/experience/SoundscapePlayer";
 import StoryGallery from "../components/experience/StoryGallery";
+import { useNavigate } from "react-router-dom";
 
 function LodgeDetails() {
   const { id } = useParams();
-  
+  const navigate = useNavigate();
   // Find the specific lodge from your data file using the ID from the URL
   const lodge = lodges.find(l => l.id === id);
 
@@ -63,10 +64,15 @@ function LodgeDetails() {
       <StoryGallery stories={lodge.stories} />
 
       <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+        
         <Link to="/booking">
-          <button className="btn-prm">Book Your Stay</button>
+          
+          <button onClick={() => navigate(`/book/${lodge.id}`)} className="btn-prm">
+          Book Now
+          </button>
         </Link>
       </div>
+
     </div>
   );
 }

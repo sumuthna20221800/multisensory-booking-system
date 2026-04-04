@@ -21,7 +21,7 @@
       <section className="story-gallery">
         {stories.map((story, index) => (
           <div key={index} className="story-card">
-            <h3>Chapter {index + 1}</h3>
+            <h3>Story Gallery {index + 1}</h3>
             <p>{story}</p>
           </div>
         ))}

@@ -152,14 +152,14 @@
     }
     */
 
-    import React, { useState } from "react";
+    import React, { useState, useEffect } from "react";
   import { createBooking } from "../../services/bookingService";
 import "./bookingForm.css";
 
-export default function BookingForm() {
+export default function BookingForm({preSelectedId}) {
   // 1. Initialize state for all form fields
   const [formData, setFormData] = useState({
-    stayId: "",
+    stayId:preSelectedId || "",
     guests: 1,
     fullName: "",
     email: "",
@@ -196,6 +196,12 @@ export default function BookingForm() {
     }
   };
 
+  useEffect(() => {
+    if (preSelectedId) {
+      setFormData(prev => ({ ...prev, stayId: preSelectedId }));
+    }
+  }, [preSelectedId]);
+
   return (
     <section className="glass-bg">
       <div className="glass-card">
@@ -207,19 +213,28 @@ export default function BookingForm() {
         {/* 4. Attach the handleSubmit function */}
         <form className="glass-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Stay ID</label>
-            <input
-              type="text"
+            <label>Stay ID*</label>
+            <select
               name="stayId"
-              placeholder="STAY-001"
               value={formData.stayId}
               onChange={handleChange}
               required
-            />
+              className="dropdown"
+            >
+              <option value="" disabled>
+                Select Stay ID
+              </option>
+              <option value="LOD-001">LOD-001</option>
+              <option value="LOD-002">LOD-002</option>
+              <option value="LOD-003">LOD-003</option>
+              <option value="LOD-004">LOD-004</option>
+              <option value="LOD-005">LOD-005</option>
+              <option value="LOD-006">LOD-006</option>
+            </select>
           </div>
 
           <div className="form-group">
-            <label>Guests</label>
+            <label>Guests*</label>
             <input
               type="number"
               name="guests"
@@ -231,7 +246,7 @@ export default function BookingForm() {
           </div>
 
           <div className="form-group">
-            <label>Full Name</label>
+            <label>Full Name*</label>
             <input
               type="text"
               name="fullName"
@@ -243,7 +258,7 @@ export default function BookingForm() {
           </div>
 
           <div className="form-group">
-            <label>Email</label>
+            <label>Email*</label>
             <input
               type="email"
               name="email"
@@ -255,7 +270,7 @@ export default function BookingForm() {
           </div>
 
           <div className="form-group">
-            <label>Check-in Date</label>
+            <label>Check-in Date*</label>
             <input
               type="date"
               name="checkIn"
@@ -266,7 +281,7 @@ export default function BookingForm() {
           </div>
 
           <div className="form-group">
-            <label>Check-out Date</label>
+            <label>Check-out Date*</label>
             <input
               type="date"
               name="checkOut"
@@ -277,7 +292,7 @@ export default function BookingForm() {
           </div>
 
           <div className="form-group">
-            <label>Contact Number</label>
+            <label>Contact Number*</label>
             <input
               type="tel"
               name="contact"
