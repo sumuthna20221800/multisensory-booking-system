@@ -83,6 +83,7 @@ import { register, login } from '../services/authService'; //
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Lock, User, Leaf, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom'; //
+import { toast } from 'react-toastify';
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -106,10 +107,10 @@ const AuthPage = () => {
       }
       
       // Displays the "Connection Successful" message from your backend
-      alert(response.message || "Success!");
+      toast.success(response.message || "Success!");
       navigate('/'); 
     } catch (err) {
-      alert(err.response?.data?.message || "Backend connection failed");
+      toast.error(err.response?.data?.message || "Backend connection failed");
     }
   };
 

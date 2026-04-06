@@ -13,6 +13,7 @@
   import "../booking/bookingForm.css";
 import { useState } from "react";
 import { submitFeedback } from "../../services/feedbackService";
+import { toast } from 'react-toastify';
 
 export default function FeedbackQuiz() {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ export default function FeedbackQuiz() {
     e.preventDefault();
     try {
       const response = await submitFeedback(formData);
-      alert(response.message || "Feedback submitted successfully");
+      toast.success(response.message || "Feedback submitted successfully");
       setFormData({
         name: "",
         email: "",
@@ -44,7 +45,7 @@ export default function FeedbackQuiz() {
         comment: "",
       });
     } catch (error) {
-      alert(error.response?.data?.message || "Failed to submit feedback");
+      toast.error(error.response?.data?.message || "Failed to submit feedback");
     }
   };
 
