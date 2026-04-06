@@ -61,6 +61,8 @@ export default App;*/
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from "./pages/Home";
 import LodgeDetails from "./pages/LodgeDetails";
@@ -86,6 +88,19 @@ function App() {
         <Route path="/add-stay" element={<AddEcoStay />} />
       </Routes>
       <Footer />
+      <ToastContainer 
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        style={{ fontSize: '16px', fontWeight: '600' }}
+      />
     </BrowserRouter>
   );
 }

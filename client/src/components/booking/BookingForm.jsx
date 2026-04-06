@@ -154,6 +154,7 @@
 
     import React, { useState, useEffect } from "react";
   import { createBooking } from "../../services/bookingService";
+import { toast } from 'react-toastify';
 import "./bookingForm.css";
 
 export default function BookingForm({preSelectedId}) {
@@ -179,7 +180,7 @@ export default function BookingForm({preSelectedId}) {
     e.preventDefault();
     try {
       const response = await createBooking(formData);
-      alert(response.message);
+      toast.success(response.message || "Booking created successfully!");
       setFormData({
         stayId: "",
         guests: 1,
@@ -192,7 +193,7 @@ export default function BookingForm({preSelectedId}) {
       });
     } catch (err) {
       console.error("Connection Error:", err);
-      alert(err.response?.data?.message || "Failed to submit booking");
+      toast.error(err.response?.data?.message || "Failed to submit booking");
     }
   };
 

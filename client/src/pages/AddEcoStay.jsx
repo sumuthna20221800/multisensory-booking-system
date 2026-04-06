@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import apiClient from "../services/apiClient";
+import { toast } from 'react-toastify';
 import "../components/booking/bookingForm.css"; // Ensure you create this CSS file
 
 export default function AddEcoStay() {
@@ -35,7 +36,7 @@ export default function AddEcoStay() {
     e.preventDefault();
     try {
       const response = await apiClient.post("/lodges", formData);
-      alert(response.data?.message || "Eco-stay added successfully!");
+      toast.success(response.data?.message || "Eco-stay added successfully!");
       setFormData({
         id: "", name: "", location: "", price: "",
         image: "", description: "", panorama: "",
@@ -43,7 +44,7 @@ export default function AddEcoStay() {
       });
     } catch (error) {
       console.error("Error adding eco-stay:", error);
-      alert(error.response?.data?.message || "Failed to add eco-stay.");
+      toast.error(error.response?.data?.message || "Failed to add eco-stay.");
     }
   };
 
