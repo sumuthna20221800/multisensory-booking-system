@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getLodges } = require('../controllers/lodgeController');
+const { getLodges, createLodge } = require('../controllers/lodgeController');
 
 router.get('/', getLodges);
+router.post('/', createLodge);
 
 module.exports = router;
