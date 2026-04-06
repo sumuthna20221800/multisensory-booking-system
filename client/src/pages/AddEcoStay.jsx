@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import apiClient from "../services/apiClient";
 import "../components/booking/bookingForm.css"; // Ensure you create this CSS file
 
 export default function AddEcoStay() {
@@ -12,7 +12,8 @@ export default function AddEcoStay() {
     description: "",
     panorama: "",
     sound: "",
-    stories: [""], 
+    stories: [""],
+    contact: "",
   });
 
   const handleChange = (e) => {
@@ -33,17 +34,16 @@ export default function AddEcoStay() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Points to your backend API route
-      const response = await axios.post("http://localhost:5000/api/ecostays", formData); 
-      alert("Eco-stay added successfully!");
+      const response = await apiClient.post("/lodges", formData);
+      alert(response.data?.message || "Eco-stay added successfully!");
       setFormData({
         id: "", name: "", location: "", price: "",
         image: "", description: "", panorama: "",
-        sound: "", stories: [""],
+        sound: "", stories: [""], contact: "",
       });
     } catch (error) {
       console.error("Error adding eco-stay:", error);
-      alert("Failed to add eco-stay. Make sure the backend is running.");
+      alert(error.response?.data?.message || "Failed to add eco-stay.");
     }
   };
 
