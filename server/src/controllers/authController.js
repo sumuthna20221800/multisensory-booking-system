@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { sendWelcomeEmail } = require('../services/mailService');
 
 const createToken = (userId) => {
   return jwt.sign({ id: userId }, process.env.JWT_SECRET || 'dev-secret', {
@@ -26,6 +27,10 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+    });
+
+    sendWelcomeEmail(newUser).catch((error) => {
+      console.error(`Welcome email dispatch failed for ${newUser._id}:`, error.message);
     });
 
     res.status(201).json({

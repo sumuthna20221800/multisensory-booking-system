@@ -1,9 +1,15 @@
 const Booking = require('../models/Booking');
+const { sendBookingEmails } = require('../services/mailService');
 
 const createBooking = async (req, res) => {
   try {
     const bookingData = req.body;
     const booking = await Booking.create(bookingData);
+
+    // Send emails in the background so booking confirmation is never blocked by SMTP issues.
+    sendBookingEmails(booking).catch((error) => {
+      console.error(`Booking email dispatch failed for ${booking._id}:`, error.message);
+    });
 
     res.status(201).json({
       success: true,
